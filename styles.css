@@ -620,6 +620,14 @@ body {
 @media (max-width: 768px) {
   .chat-footer {
     padding: 1rem 1rem;
+    position: sticky;
+    bottom: 0;
+    background: var(--bot-bubble);
+    z-index: 15;
+    width: 100%;
+  }
+  .chat-form-container {
+    padding-bottom: 3rem; /* Add bottom padding to avoid footer overlap */
   }
   .support-links {
     max-width: 100%;
