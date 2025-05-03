@@ -225,20 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   async function fetchOpenAI(messages) {
-    const API_KEY = '23b55ef74ffe4cef8c922dccecacc930';
-    const BASE_URL = 'https://api.aimlapi.com/v1/chat/completions';
-
-    const response = await fetch(BASE_URL, {
+    const response = await fetch('/.netlify/functions/chat', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        model: 'gpt-4o',
-        messages: messages,
-        temperature: 0.7
-      })
+      body: JSON.stringify({ messages })
     });
 
     if (!response.ok) {
@@ -246,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const data = await response.json();
-    return data.choices[0].message.content;
+    return data.content;
   }
 
   // Hamburger Menu Toggle
