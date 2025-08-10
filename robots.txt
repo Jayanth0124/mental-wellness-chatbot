@@ -1,5 +1,163 @@
+# AI Health - Mental Wellness Companion
+# Comprehensive SEO Robots.txt
+
+# Main Sitemap
+Sitemap: https://mindoragpt.netlify.app/sitemap.xml
+
+# Allow all crawlers
 User-agent: *
-Disallow: /private/
 Allow: /
 
-Sitemap: https://mindoragpt.netlify.app/sitemap.xml
+# Block specific directories and files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /config/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /dist/
+Disallow: /*.json$
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /*.config.js$
+Disallow: /*.config.ts$
+
+# Block specific file types
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+Disallow: /*.xls$
+Disallow: /*.xlsx$
+
+# Block tracking and analytics
+Disallow: /analytics/
+Disallow: /tracking/
+Disallow: /stats/
+Disallow: /metrics/
+
+# Block development and staging
+Disallow: /dev/
+Disallow: /staging/
+Disallow: /test/
+Disallow: /beta/
+
+# Block user-specific pages
+Disallow: /user/
+Disallow: /account/
+Disallow: /profile/
+Disallow: /settings/
+
+# Block search and filter pages
+Disallow: /search?
+Disallow: /filter?
+Disallow: /sort?
+Disallow: /*?*sessionid=
+Disallow: /*?*utm_
+Disallow: /*?*gclid=
+Disallow: /*?*fbclid=
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /*.svg$
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social media bots
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+# AI and ML bots
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Mobile bots
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot-Mobile
+Allow: /
+
+# Archive bots
+User-agent: ia_archiver
+Allow: /
+
+# SEO tools
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 5
+
+# Security - Block known bad bots
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Block aggressive bots
+User-agent: dotbot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+# Allow all other bots
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Additional sitemaps for different content types
+Sitemap: https://mindoragpt.netlify.app/sitemap-pages.xml
+Sitemap: https://mindoragpt.netlify.app/sitemap-blog.xml
+Sitemap: https://mindoragpt.netlify.app/sitemap-resources.xml
+
+# Host directive for canonical domain
+Host: https://mindoragpt.netlify.app

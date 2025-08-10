@@ -1,0 +1,109 @@
+{
+  "name": "MindoraGPT - AI Mental Health Companion",
+  "short_name": "MindoraGPT",
+  "description": "AI-powered mental wellness companion providing 24/7 emotional support, mindfulness exercises, and personalized mental health guidance",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4ade80",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["health", "medical", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/healthcare.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/healthcare.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/healthcare.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/healthcare.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/healthcare.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/healthcare.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/healthcare.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "MindoraGPT on desktop"
+    },
+    {
+      "src": "/healthcare.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "MindoraGPT on mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Chat",
+      "short_name": "Chat",
+      "description": "Start a conversation with your AI mental health companion",
+      "url": "/chat",
+      "icons": [{ "src": "/healthcare.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Breathing Exercises",
+      "short_name": "Breathe",
+      "description": "Access guided breathing exercises for stress relief",
+      "url": "/breathing",
+      "icons": [{ "src": "/healthcare.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Mood Tracker",
+      "short_name": "Mood",
+      "description": "Track your mood and emotional patterns",
+      "url": "/mood-tracker",
+      "icons": [{ "src": "/healthcare.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://mindoragpt.netlify.app/"
+    }
+  ],
+  "prefer_related_applications": false,
+  "features": [
+    "ai-chat",
+    "mood-tracking",
+    "breathing-exercises",
+    "mindfulness-tools",
+    "mental-health-support"
+  ],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  }
+}
