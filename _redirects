@@ -1,0 +1,3 @@
+# Redirect rules for Netlify
+# Single page application routing
+/*    /index.html   200

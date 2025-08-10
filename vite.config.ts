@@ -7,4 +7,19 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+        },
+      },
+    },
+  },
+  server: {
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'cross-origin',
+      'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+    },
+  },
 });
