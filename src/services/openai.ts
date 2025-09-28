@@ -1,8 +1,10 @@
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true
+  // OpenRouter baseURL for your sk-or-v1 key. This URL is what the CSP is blocking.
+  baseURL: 'https://openrouter.ai/api/v1',
+  apiKey: import.meta.env.VITE_OPEN_ROUTER_API_KEY,
+  dangerouslyAllowBrowser: true,
 });
 
 export interface ChatMessage {
@@ -41,6 +43,7 @@ Boundaries:
 
 Remember: You are a supportive companion, not a replacement for professional medical or mental health care.`;
 
+
 export class OpenAIService {
   private conversationHistory: ChatMessage[] = [
     { role: 'system', content: SYSTEM_PROMPT }
@@ -48,8 +51,11 @@ export class OpenAIService {
 
   async sendMessage(userMessage: string, userName?: string): Promise<string> {
     try {
+      if (!import.meta.env.VITE_OPEN_ROUTER_API_KEY) {
+        throw new Error('OpenRouter API key not configured. Please add VITE_OPEN_ROUTER_API_KEY to your .env.local file.');
+      }
       // Add user context if name is provided
-      const contextualMessage = userName 
+      const contextualMessage = userName
         ? `${userMessage} (User's name: ${userName})`
         : userMessage;
 
@@ -59,7 +65,8 @@ export class OpenAIService {
       });
 
       const completion = await openai.chat.completions.create({
-        model: 'gpt-4',
+        // OpenRouter model name
+        model: 'openai/gpt-3.5-turbo',
         messages: this.conversationHistory,
         max_tokens: 500,
         temperature: 0.7,
@@ -67,7 +74,7 @@ export class OpenAIService {
         frequency_penalty: 0.1
       });
 
-      const assistantMessage = completion.choices[0]?.message?.content || 
+      const assistantMessage = completion.choices[0]?.message?.content ||
         "I'm here to support you. Could you tell me more about how you're feeling?";
 
       this.conversationHistory.push({
@@ -85,12 +92,12 @@ export class OpenAIService {
 
       return assistantMessage;
     } catch (error) {
-      console.error('OpenAI API Error:', error);
-      
+      console.error('OpenRouter API Error:', error);
+
       if (error instanceof Error && error.message.includes('API key')) {
         return "I'm having trouble connecting right now. Please make sure the API key is configured correctly. In the meantime, I want you to know that I'm here to support you. 💙";
       }
-      
+
       return "I'm experiencing some technical difficulties, but I want you to know that your feelings are valid and I'm here to support you. Please try again in a moment. 🌿";
     }
   }
