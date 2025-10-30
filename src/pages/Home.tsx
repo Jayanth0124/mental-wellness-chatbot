@@ -103,7 +103,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         ))}
       </div>
 
-      {/* Daily Affirmation */}
+      {/* Daily Affirmation */} 
       <div className="bg-gradient-to-r from-green-100 to-blue-100 rounded-2xl p-8 text-center border border-green-200">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Daily Affirmation 💙</h2>
         <p className="text-lg text-gray-700 italic max-w-2xl mx-auto leading-relaxed">
@@ -119,3 +119,4 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     </div>
   );
 };
+
